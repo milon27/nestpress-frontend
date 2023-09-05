@@ -1,0 +1,1 @@
+-   all hooks which will be used in the whole application

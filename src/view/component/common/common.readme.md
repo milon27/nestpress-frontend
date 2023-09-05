@@ -1,0 +1,7 @@
+-   all common components
+-   e.g.
+    -   card
+    -   dialog
+    -   button
+    -   separator
+    -   loading

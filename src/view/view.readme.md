@@ -1,0 +1,2 @@
+-   only view folder should contain things related to "react-web"
+-   so that we can only replace this folder in "react-native" project

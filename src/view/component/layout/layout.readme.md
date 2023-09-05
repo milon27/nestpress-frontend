@@ -1,0 +1,2 @@
+-   all layout component files will be here
+-   e.g. <Container></Container> for the all the pages

@@ -1,0 +1,7 @@
+-   all form components
+-   e.g.
+    -   input
+    -   radio button
+    -   select
+    -   checkbox
+    -   date picker
