@@ -5,7 +5,7 @@
 # Development Guide
 
 ```bash
-git clone url....
+git clone https://github.com/milon27/nestpress-frontend
 pnpm i
 pnpm dev
 # app will run on port 3000
