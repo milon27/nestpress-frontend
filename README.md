@@ -1,6 +1,6 @@
 # Nestpress Frontend With React JS
 
--   Auth flow with nestpress backend.
+-   Auth flow with [nestpress](https://github.com/milon27/nestpress) backend.
 
 # Development Guide
 
