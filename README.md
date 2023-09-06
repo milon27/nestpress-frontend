@@ -10,3 +10,12 @@ pnpm i
 pnpm dev
 # app will run on port 3000
 ```
+
+#### pnpm guide
+
+```bash
+# install dep
+pnpm i hello
+# npx equivalent
+pnpm dlx shadcn-ui@latest init
+```

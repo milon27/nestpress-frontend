@@ -1,10 +1,39 @@
 /** @type {import('tailwindcss').Config} */
-
-const TailwindTheme = require("./src/config/theme/tailwind.theme.json")
-
-export default {
-    darkMode: "class",
-    content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-    theme: TailwindTheme,
-    plugins: [],
+module.exports = {
+    darkMode: ["class"],
+    content: ["./index.html", "./src/**/*.{ts,tsx}"],
+    theme: {
+        container: {
+            center: true,
+            padding: "2rem",
+            screens: {
+                "2xl": "1400px",
+            },
+        },
+        extend: {
+            colors: {
+                info: "#1fb6ff",
+                danger: "#ff1c1c",
+                warning: "#ffc82c",
+                "primary-light": "#397a4a",
+                primary: "#308a48",
+                "primary-dark": "#325343",
+            },
+            keyframes: {
+                "accordion-down": {
+                    from: { height: 0 },
+                    to: { height: "var(--radix-accordion-content-height)" },
+                },
+                "accordion-up": {
+                    from: { height: "var(--radix-accordion-content-height)" },
+                    to: { height: 0 },
+                },
+            },
+            animation: {
+                "accordion-down": "accordion-down 0.2s ease-out",
+                "accordion-up": "accordion-up 0.2s ease-out",
+            },
+        },
+    },
+    plugins: [require("tailwindcss-animate")],
 }

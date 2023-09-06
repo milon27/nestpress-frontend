@@ -21,8 +21,10 @@ export const useLoginController = () => {
 
     const onSubmit = async (input: ILoginWithEmailDto) => {
         try {
+            console.log("first")
             const userResponse = await AuthService.loginWithEmail(input)
             setCurrentUser(userResponse)
+            console.log("second")
             toast("successfully login")
         } catch (error) {
             console.error("login with email:onSubmit:->", error)

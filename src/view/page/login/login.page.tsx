@@ -6,6 +6,8 @@ import MyTitle from "../../component/common/my-title.comp"
 import FullSectionWrapper from "../../component/layout/full-section-wrapper.comp"
 import { useLoginController } from "./login.controller"
 
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/view/component/shadcn/ui/tooltip"
+
 export default function LoginPage() {
     const { control, handleSubmit, loading } = useLoginController()
     return (
@@ -38,6 +40,16 @@ export default function LoginPage() {
                         await handleSubmit()
                     }}
                 />
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <button>hello</button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>Click the button to login</p>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
                 <MySpacer className="my-4" />
             </div>
         </FullSectionWrapper>
