@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import DemoPage from "../page/demo/demo.page"
 import HomePage from "../page/home/home.page"
 import LoginPage from "../page/login/login.page"
 import NotFoundPage from "../page/not-found/not-found.page"
@@ -28,6 +29,7 @@ export default function RootRouter() {
                         }
                     />
 
+                    <Route path={"demo"} element={<DemoPage />} />
                     <Route path={RouteUrl.NOT_FOUND} element={<NotFoundPage />} />
                 </Routes>
             </BrowserRouter>

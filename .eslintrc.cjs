@@ -20,6 +20,7 @@ module.exports = {
     plugins: ["react-refresh", "prettier"],
     rules: {
         "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+        "react/prop-types": "off",
     },
     settings: {
         react: {

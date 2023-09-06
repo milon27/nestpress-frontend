@@ -11,9 +11,10 @@ import "react-toastify/dist/ReactToastify.css"
 
 export default function App() {
     return (
-        <div className="dark">
+        <div className="">
             {/* todo: className="dark" for dark mode*/}
-            <div className="font-inter bg-gray-100 dark:bg-gray-900">
+            {/* text-slate-950 dark:text-slate-50 */}
+            <div className="min-h-screen font-inter bg-slate-50 dark:bg-slate-950 ">
                 <ErrorBoundary
                     fallbackRender={({ error, resetErrorBoundary }) => {
                         return (
