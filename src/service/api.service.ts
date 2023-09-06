@@ -28,11 +28,11 @@ ApiService.interceptors.response.use(
                 // refresh done now do the request again
                 return ApiService(originalRequest)
             }
-            return error
+            throw error
         } catch (error) {
             //  todo: handle logout here
             console.log("HANDLE LOGOUT: => :: ", error)
-            return error
+            throw error
         } finally {
             isRefreshing = false
         }
