@@ -1,27 +1,27 @@
-import { z } from "zod"
-import { ZodEmailString, ZodPasswordString } from "../../util/zod.util"
+import { DateString } from "@/@types/common.type"
+import { ILoginWithEmailSchema } from "./auth.schema"
 
 // * Request object with zod
-export const LoginWithEmailDto = z
-    .object({
-        email: ZodEmailString,
-        password: ZodPasswordString,
-    })
-    .strict()
-
-export type ILoginWithEmailDto = z.infer<typeof LoginWithEmailDto>
+export type ILoginWithEmailDto = ILoginWithEmailSchema
 
 // * Response object
 export interface ICurrentUser {
     id: string
+    timeZone: string
+    plaidAccessKey?: string | null
+    accessToken: string
+}
+
+export interface ILoggedInUser extends ICurrentUser {
     fullName: string
+    phone?: string
     email: string
-    gender: string
     avatar?: string
     isEmailVerified: boolean
-    lastLoggedIn: Date
-    createdAt: Date
-    updatedAt: Date
+    timeZone: string
+    fcmToken?: string
+    lastLoggedIn: DateString
+    createdAt: DateString
 }
 
 export interface ITokens {

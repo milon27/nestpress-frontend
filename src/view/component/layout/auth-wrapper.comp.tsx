@@ -1,3 +1,4 @@
+import { QueryKeys } from "@/config/query.config"
 import { useQuery } from "@tanstack/react-query"
 import { PropsWithChildren, useEffect } from "react"
 import { AuthService } from "../../../service/auth/auth.service"
@@ -7,7 +8,7 @@ import MyLoading from "../common/my-loading.comp"
 export default function AuthWrapper({ children }: PropsWithChildren) {
     const { setCurrentUser } = useUserStore()
     const { isLoading, data } = useQuery(
-        ["currentUser"],
+        [QueryKeys.CURRENT_USER],
         () => {
             return AuthService.getLoggedInUser()
         },

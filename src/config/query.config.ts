@@ -9,3 +9,7 @@ export const queryClient = new QueryClient({
         },
     },
 })
+
+export const QueryKeys = {
+    CURRENT_USER: "qk-current-user",
+}

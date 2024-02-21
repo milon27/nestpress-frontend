@@ -1,10 +1,12 @@
 import { IResponse } from "../_common/common.dto"
 import { ApiService } from "../api.service"
-import { ICurrentUser, ILoginWithEmailDto, ITokens } from "./auth.dto"
+import { ICurrentUser, ILoggedInUser, ILoginWithEmailDto, ITokens } from "./auth.dto"
+import { ILoginWithEmailSchema } from "./auth.schema"
 
 export const AuthService = {
     // api call with axios
-    loginWithEmail: async (dto: ILoginWithEmailDto) => {
+    loginWithEmail: async (schema: ILoginWithEmailSchema) => {
+        const dto: ILoginWithEmailDto = schema
         const { data } = await ApiService.post<IResponse<ICurrentUser>>("/v1/auth/login-with-email", dto)
         return data.response
     },
@@ -13,6 +15,6 @@ export const AuthService = {
         return result.data.response
     },
     getLoggedInUser: () => {
-        return ApiService.post<IResponse<ICurrentUser>>("/v1/user")
+        return ApiService.post<IResponse<ILoggedInUser>>("/v1/user")
     },
 }
