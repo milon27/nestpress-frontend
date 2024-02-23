@@ -33,17 +33,16 @@ export default function LoginPage() {
                     placeholder="Enter Your Password"
                 />
                 <MySpacer className="my-4" />
-                <MyButton
-                    title="Login Now"
-                    loading={loading}
-                    onClick={async () => {
-                        await handleSubmit()
-                    }}
-                />
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <button>hello</button>
+                            <MyButton
+                                title="Login Now"
+                                loading={loading}
+                                onClick={async () => {
+                                    await handleSubmit()
+                                }}
+                            />
                         </TooltipTrigger>
                         <TooltipContent>
                             <p>Click the button to login</p>

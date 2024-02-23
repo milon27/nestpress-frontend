@@ -4,6 +4,7 @@ import { PropsWithChildren, useEffect } from "react"
 import { AuthService } from "../../../service/auth/auth.service"
 import { useUserStore } from "../../../store/user.store"
 import MyLoading from "../common/my-loading.comp"
+import { ICurrentUser } from "@/service/auth/auth.dto"
 
 export default function AuthWrapper({ children }: PropsWithChildren) {
     const { setCurrentUser } = useUserStore()
@@ -15,8 +16,14 @@ export default function AuthWrapper({ children }: PropsWithChildren) {
         {
             retry: false,
             select(response) {
-                const user = response?.data?.response
-                return user || undefined
+                if (response)
+                    return {
+                        id: response.id,
+                        accessToken: response.accessToken,
+                        timeZone: response.timeZone,
+                        plaidAccessKey: response.plaidAccessKey,
+                    } satisfies ICurrentUser
+                return undefined
             },
         }
     )
