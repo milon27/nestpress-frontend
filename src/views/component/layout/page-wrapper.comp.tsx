@@ -3,7 +3,7 @@ interface IPageWrapper {
     children: React.ReactNode
 }
 
-export default function PageWrapper({ children, hideHeaderFooter = false }: IPageWrapper) {
+export function PageWrapper({ children, hideHeaderFooter = false }: IPageWrapper) {
     return (
         <div>
             {!hideHeaderFooter && "Header"}

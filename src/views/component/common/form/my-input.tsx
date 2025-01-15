@@ -11,7 +11,7 @@ interface IMyInput extends TypeInputAndTextArea {
     isTextArea?: boolean
 }
 
-export default function MyInput({ myRef, error, isTextArea = false, ...others }: IMyInput) {
+export function MyInput({ myRef, error, isTextArea = false, ...others }: IMyInput) {
     return (
         <div className="flex flex-col text-gray-600 dark:text-gray-400 ">
             {others.placeholder && (

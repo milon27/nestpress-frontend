@@ -3,7 +3,7 @@ interface IMyTitle extends React.HTMLAttributes<HTMLDivElement> {
     large?: boolean
 }
 
-export default function MyTitle({ title, large = false, className }: IMyTitle) {
+export function MyTitle({ title, large = false, className }: IMyTitle) {
     return (
         <h1
             className={`font-poppins font-semibold text-primary ${

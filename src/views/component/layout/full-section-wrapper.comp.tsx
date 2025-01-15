@@ -4,6 +4,6 @@ interface IFullSectionWrapper extends Omit<React.HTMLProps<HTMLDivElement>, "cla
     children: React.ReactNode
 }
 
-export default function FullSectionWrapper({ children, className }: IFullSectionWrapper) {
+export function FullSectionWrapper({ children, className }: IFullSectionWrapper) {
     return <div className={`min-h-screen ${className}`}>{children}</div>
 }

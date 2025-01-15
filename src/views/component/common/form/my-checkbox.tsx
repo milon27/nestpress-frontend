@@ -11,7 +11,7 @@ interface IMyCheckBox {
     myRef?: React.LegacyRef<HTMLInputElement>
 }
 
-export default function MyCheckBox({ name, content, checked, onChange, error, myRef, ...props }: IMyCheckBox) {
+export function MyCheckBox({ name, content, checked, onChange, error, myRef, ...props }: IMyCheckBox) {
     return (
         <>
             <div>

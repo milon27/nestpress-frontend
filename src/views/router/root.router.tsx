@@ -3,11 +3,11 @@ import DemoPage from "../page/demo/demo.page"
 import HomePage from "../page/home/home.page"
 import LoginPage from "../page/login/login.page"
 import NotFoundPage from "../page/not-found/not-found.page"
-import ProtectedRoute from "./protected.route"
-import PublicRoute from "./public.route"
+import { ProtectedRoute } from "./protected.route"
+import { PublicRoute } from "./public.route"
 import { RouteUrl } from "./url"
 
-export default function RootRouter() {
+export function RootRouter() {
     return (
         <>
             <BrowserRouter>

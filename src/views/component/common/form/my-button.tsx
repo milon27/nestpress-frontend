@@ -19,7 +19,7 @@ interface IMyButton {
     onClick: () => void | Promise<void>
 }
 
-export default function MyButton({ onClick, title, loading = false, variant = "primary" }: IMyButton) {
+export function MyButton({ onClick, title, loading = false, variant = "primary" }: IMyButton) {
     return (
         <button
             disabled={loading}

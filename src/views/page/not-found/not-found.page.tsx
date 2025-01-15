@@ -1,4 +1,4 @@
-import FullSectionWrapper from "../../component/layout/full-section-wrapper.comp"
+import { FullSectionWrapper } from "../../component/layout/full-section-wrapper.comp"
 
 export default function NotFoundPage() {
     return (
