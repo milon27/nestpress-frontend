@@ -1,4 +1,4 @@
-import { Button } from "@/view/component/shadcn/ui/button"
+import { Button } from "@/views/component/shadcn/ui/button"
 import {
     Card,
     CardContent,
@@ -6,11 +6,11 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-} from "@/view/component/shadcn/ui/card"
-import { Input } from "@/view/component/shadcn/ui/input"
-import { Label } from "@/view/component/shadcn/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/view/component/shadcn/ui/select"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/view/component/shadcn/ui/tooltip"
+} from "@/views/component/shadcn/ui/card"
+import { Input } from "@/views/component/shadcn/ui/input"
+import { Label } from "@/views/component/shadcn/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/views/component/shadcn/ui/select"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/views/component/shadcn/ui/tooltip"
 
 export default function DemoPage() {
     return (

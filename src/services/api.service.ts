@@ -1,5 +1,5 @@
 import axios from "axios"
-import { EnvConfig } from "../config/env.config"
+import { EnvConfig } from "../configs/env.config"
 import { MessageConstant } from "../constants/message.constant"
 
 export const ApiService = axios.create({

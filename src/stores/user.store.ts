@@ -1,7 +1,7 @@
 // logged in user global state with zustand store
 import { shallow } from "zustand/shallow"
 import { createWithEqualityFn } from "zustand/traditional"
-import { ICurrentUser } from "../service/auth/auth.dto"
+import { ICurrentUser } from "../services/auth/auth.dto"
 
 interface IUserStore {
     user?: ICurrentUser

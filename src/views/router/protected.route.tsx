@@ -1,6 +1,6 @@
 import { PropsWithChildren } from "react"
-import { useUserStore } from "../../store/user.store"
 import { Navigate } from "react-router-dom"
+import { useUserStore } from "../../stores/user.store"
 import { RouteUrl } from "./url"
 
 export default function ProtectedRoute({ children }: PropsWithChildren) {

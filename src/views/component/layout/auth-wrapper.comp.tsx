@@ -1,8 +1,8 @@
-import { QueryKeys } from "@/config/query.config"
+import { QueryKeys } from "@/configs/query.config"
 import { useQuery } from "@tanstack/react-query"
 import { PropsWithChildren, useEffect } from "react"
-import { AuthService } from "../../../service/auth/auth.service"
-import { useUserStore } from "../../../store/user.store"
+import { AuthService } from "../../../services/auth/auth.service"
+import { useUserStore } from "../../../stores/user.store"
 import MyLoading from "../common/my-loading.comp"
 
 export default function AuthWrapper({ children }: PropsWithChildren) {

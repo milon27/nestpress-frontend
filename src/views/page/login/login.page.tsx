@@ -6,7 +6,7 @@ import MyTitle from "../../component/common/my-title.comp"
 import FullSectionWrapper from "../../component/layout/full-section-wrapper.comp"
 import { useLoginController } from "./login.controller"
 
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/view/component/shadcn/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/views/component/shadcn/ui/tooltip"
 
 export default function LoginPage() {
     const { control, handleSubmit, loading } = useLoginController()

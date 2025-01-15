@@ -1,7 +1,7 @@
 import { AxiosError } from "axios"
 import { CodeConstant } from "../constants/code.constant"
 import { MessageConstant } from "../constants/message.constant"
-import { IErrorResponse } from "../service/_common/common.dto"
+import { IErrorResponse } from "../services/_common/common.dto"
 
 export const ErrorUtil = {
     getErrorMessage: (error: AxiosError | Error): { message: string } => {

@@ -1,9 +1,9 @@
-import MyButton from "@/view/component/common/form/my-button.comp"
-import { useUserStore } from "../../../store/user.store"
+import { AuthService } from "@/services/auth/auth.service"
+import MyButton from "@/views/component/common/form/my-button.comp"
+import MySpacer from "@/views/component/common/my-spacer.comp"
+import { useUserStore } from "../../../stores/user.store"
 import ContainerSectionWrapper from "../../component/layout/container-section-wrapper.comp"
 import PageWrapper from "../../component/layout/page-wrapper.comp"
-import { AuthService } from "@/service/auth/auth.service"
-import MySpacer from "@/view/component/common/my-spacer.comp"
 
 const logOut = async () => {
     await AuthService.logOutUser()

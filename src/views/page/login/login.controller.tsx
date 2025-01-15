@@ -1,11 +1,11 @@
-import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { AuthService } from "../../../service/auth/auth.service"
-import { useUserStore } from "../../../store/user.store"
 import { toast } from "react-toastify"
+import { ILoginWithEmailSchema, LoginWithEmailSchema } from "../../../services/auth/auth.schema"
+import { AuthService } from "../../../services/auth/auth.service"
+import { useUserStore } from "../../../stores/user.store"
 import { ErrorUtil } from "../../../util/error.util"
-import { ILoginWithEmailSchema, LoginWithEmailSchema } from "./../../../service/auth/auth.schema"
 
 export const useLoginController = () => {
     const [loading, setLoading] = useState(false)
