@@ -1,4 +1,4 @@
-export const Constant = {
+export const CommonConstant = {
     STRING_NUM_SPACE_PATTERN: "^[a-zA-Z0-9 _-]+$",
     STRING_NUM_PATTERN: `^-?\\d+(\\.\\d+)?$`, //^[0-9.]+$
     STRING_NUM_PATTERN_NON_NEG: `^\\d+(\\.\\d+)?$`, //^[0-9.]+$

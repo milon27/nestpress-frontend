@@ -1,25 +1,25 @@
-import { Constant } from "@/config/constant/common.constant"
+import { CommonConstant } from "@/constants/common.constant"
 import { z } from "zod"
 
 export const ZodNameString = z
     .string()
     .trim()
     .min(1, "It's required")
-    .regex(new RegExp(Constant.STRING_NUM_SPACE_PATTERN), "Only character, number and space are allowed")
+    .regex(new RegExp(CommonConstant.STRING_NUM_SPACE_PATTERN), "Only character, number and space are allowed")
 
 export const ZodNumericString = z
     .string()
     .trim()
     .min(1, "It's required")
     // .min(1).max(8) where we need 1 million use min(1).max(10)
-    .regex(new RegExp(Constant.STRING_NUM_PATTERN), "Enter number")
+    .regex(new RegExp(CommonConstant.STRING_NUM_PATTERN), "Enter number")
 
 export const ZodNumericNonNegString = z
     .string()
     .trim()
     .min(1, "It's required")
     // .min(1).max(7) where we need 1 million use min(1).max(9)
-    .regex(new RegExp(Constant.STRING_NUM_PATTERN_NON_NEG), "Enter positive number")
+    .regex(new RegExp(CommonConstant.STRING_NUM_PATTERN_NON_NEG), "Enter positive number")
 
 export const ZodSimpleEmptyString = z.string().trim()
 

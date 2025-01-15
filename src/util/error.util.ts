@@ -1,13 +1,13 @@
 import { AxiosError } from "axios"
-import { StatusCode } from "../config/constant/code.constant"
-import { MessageConstant } from "../config/constant/message.constant"
+import { CodeConstant } from "../constants/code.constant"
+import { MessageConstant } from "../constants/message.constant"
 import { IErrorResponse } from "../service/_common/common.dto"
 
 export const ErrorUtil = {
     getErrorMessage: (error: AxiosError | Error): { message: string } => {
         if (error instanceof AxiosError) {
             // ! if 500 then show something went wrong, show a button to share error with MM team, open error screen
-            if (error.response?.status === StatusCode.SERVER_ERROR) {
+            if (error.response?.status === CodeConstant.STATUS_CODE.SERVER_ERROR) {
                 return { message: MessageConstant.SOMETHING_WENT_WRONG }
             }
             if (error.code === AxiosError.ERR_NETWORK) {

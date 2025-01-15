@@ -1,4 +1,4 @@
-import { MessageConstant } from "../../../config/constant/message.constant"
+import { MessageConstant } from "../../../constants/message.constant"
 
 interface IErrorPage {
     error: Error
