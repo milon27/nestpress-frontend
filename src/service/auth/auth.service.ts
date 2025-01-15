@@ -50,7 +50,11 @@ export const AuthService = {
     },
     getLoggedInUser: async () => {
         const { data } = await ApiService.post<IResponse<ILoggedInUser>>("/v1/user")
-        return data.response
+        return {
+            id: data.response.id,
+            accessToken: data.response.accessToken,
+            timeZone: data.response.timeZone,
+        } as ICurrentUser
     },
     getForgetPasswordLink: async (schema: IForgetPasswordSchema) => {
         const dto: IForgetPasswordDto = schema

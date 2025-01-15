@@ -29,7 +29,6 @@ export type IResetPasswordDto = Omit<IResetPasswordSchema, "confirmPassword">
 export interface ICurrentUser {
     id: string
     timeZone: string
-    plaidAccessKey?: string | null
     accessToken: string
 }
 
