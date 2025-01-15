@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query"
 import { PropsWithChildren, useEffect } from "react"
 import { AuthService } from "../../../services/auth/auth.service"
 import { useUserStore } from "../../../stores/user.store"
-import MyLoading from "../common/my-loading.comp"
+import MyLoading from "../common/my-loading"
 
 export default function AuthWrapper({ children }: PropsWithChildren) {
     const { setCurrentUser } = useUserStore()

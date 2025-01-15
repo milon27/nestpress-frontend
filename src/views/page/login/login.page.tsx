@@ -1,8 +1,8 @@
-import MyButton from "../../component/common/form/my-button.comp"
-import { MyInputWithRHF } from "../../component/common/form/my-input.comp"
-import MyDesc from "../../component/common/my-desc.comp"
-import MySpacer from "../../component/common/my-spacer.comp"
-import MyTitle from "../../component/common/my-title.comp"
+import MyButton from "../../component/common/form/my-button"
+import { MyInputWithRHF } from "../../component/common/form/my-input"
+import MyDesc from "../../component/common/my-desc"
+import MySpacer from "../../component/common/my-spacer"
+import MyTitle from "../../component/common/my-title"
 import FullSectionWrapper from "../../component/layout/full-section-wrapper.comp"
 import { useLoginController } from "./login.controller"
 
