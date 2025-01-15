@@ -1,6 +1,6 @@
+import { RuleType } from "@/@types/form.type"
 import React from "react"
 import { Control, Controller, FieldValues, Path } from "react-hook-form"
-import { RuleType } from "../../../../@types/form.type"
 
 type TypeInputAndTextArea = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 

@@ -1,5 +1,5 @@
-import { MyButton } from "../../component/common/form/my-button"
-import { MyInputWithRHF } from "../../component/common/form/my-input"
+import { MyButton } from "@/views/component/form/my-button"
+import { MyInputWithRHF } from "@/views/component/form/my-input"
 import { MyDesc } from "../../component/common/my-desc"
 import { MySpacer } from "../../component/common/my-spacer"
 import { MyTitle } from "../../component/common/my-title"
