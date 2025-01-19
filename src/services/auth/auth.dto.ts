@@ -28,7 +28,10 @@ export type IResetPasswordDto = Omit<IResetPasswordSchema, "confirmPassword">
 // * Response object
 export interface ICurrentUser {
     id: string
+    isSuperAdmin: boolean
     timeZone: string
+}
+export interface ILoginRegisterResponse extends ICurrentUser {
     accessToken: string
 }
 

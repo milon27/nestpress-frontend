@@ -4,6 +4,7 @@ import {
     ICurrentUser,
     IForgetPasswordDto,
     ILoggedInUser,
+    ILoginRegisterResponse,
     ILoginWithEmailDto,
     ILoginWithGoogleDto,
     ILoginWithGoogleResponse,
@@ -22,12 +23,12 @@ export const AuthService = {
     // api call with axios
     loginWithEmail: async (schema: ILoginWithEmailSchema) => {
         const dto: ILoginWithEmailDto = schema
-        const { data } = await ApiService.post<IResponse<ICurrentUser>>("/v1/auth/login-with-email", dto)
+        const { data } = await ApiService.post<IResponse<ILoginRegisterResponse>>("/v1/auth/login-with-email", dto)
         return data.response
     },
     loginWithGoogle: async (schema: ILoginWithGoogleSchema) => {
         const dto: ILoginWithGoogleDto = schema
-        const { data } = await ApiService.post<IResponse<ICurrentUser | ILoginWithGoogleResponse>>(
+        const { data } = await ApiService.post<IResponse<ILoginRegisterResponse | ILoginWithGoogleResponse>>(
             "/v1/auth/login-with-google",
             dto
         )
@@ -42,7 +43,7 @@ export const AuthService = {
                 timeZone,
             },
         }
-        const { data } = await ApiService.post<IResponse<ICurrentUser>>("/v1/auth/register", dto)
+        const { data } = await ApiService.post<IResponse<ILoginRegisterResponse>>("/v1/auth/register", dto)
         return data.response
     },
     logOutUser: async () => {
@@ -52,7 +53,7 @@ export const AuthService = {
         const { data } = await ApiService.post<IResponse<ILoggedInUser>>("/v1/user")
         return {
             id: data.response.id,
-            accessToken: data.response.accessToken,
+            isSuperAdmin: data.response.isSuperAdmin,
             timeZone: data.response.timeZone,
         } as ICurrentUser
     },
