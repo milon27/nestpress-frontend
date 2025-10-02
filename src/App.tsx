@@ -1,13 +1,9 @@
 import { QueryClientProvider } from "@tanstack/react-query"
 import { ErrorBoundary } from "react-error-boundary"
-import { ToastContainer } from "react-toastify"
 import { queryClient } from "./configs/query.config"
-import { AuthWrapper } from "./views/component/layout/auth-wrapper.comp"
+import { Toaster } from "./views/component/ui/sonner"
 import ErrorPage from "./views/page/error/error.page"
 import { RootRouter } from "./views/router/root.router"
-
-// global css
-import "react-toastify/dist/ReactToastify.css"
 
 export default function App() {
     return (
@@ -25,11 +21,9 @@ export default function App() {
                     }}
                 >
                     <QueryClientProvider client={queryClient}>
-                        <AuthWrapper>
-                            <RootRouter />
-                        </AuthWrapper>
+                        <RootRouter />
                     </QueryClientProvider>
-                    <ToastContainer />
+                    <Toaster richColors />
                 </ErrorBoundary>
             </div>
         </div>

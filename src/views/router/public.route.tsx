@@ -1,11 +1,16 @@
 import { PropsWithChildren } from "react"
 import { Navigate } from "react-router-dom"
-import { useUserStore } from "../../stores/user.store"
+import { useUser } from "../../stores/user.store"
+import { MyLoading } from "../component/common/my-loading"
 import { RouteUrl } from "./url"
 
 export function PublicRoute({ children }: PropsWithChildren) {
-    const user = useUserStore((store) => store.user)
-    // todo: maybe read redirect url form query param and sent to that url
+    const { user, loading } = useUser()
+
+    if (loading) {
+        return <MyLoading />
+    }
+
     if (user) return <Navigate to={RouteUrl.HOME} />
     return <>{children}</>
 }
