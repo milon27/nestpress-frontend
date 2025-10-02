@@ -1,43 +1,45 @@
 import { RuleType } from "@/@types/form.type"
 import React from "react"
 import { Control, Controller, FieldValues, Path } from "react-hook-form"
+import { MyLabel } from "../common/my-label"
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
 
-interface IMyCheckBox {
+interface IMyRadioGroup {
     name: string
-    checked: boolean
-    onChange: (ck: boolean) => void
-    content: React.ReactNode
+    label: string
+    options: { label: string; value: string }[]
+    value: string
+    onChange: (ck: string) => void
     error?: string
     myRef?: React.LegacyRef<HTMLInputElement>
 }
 
-export function MyCheckBox({ name, content, checked, onChange, error, myRef, ...props }: IMyCheckBox) {
+export default function MyRadioGroup({ name, label, options, value, onChange, error, myRef }: IMyRadioGroup) {
     return (
         <>
             <div>
-                <div className="flex items-center">
-                    <input
-                        ref={myRef}
-                        {...props}
+                <div ref={myRef} className="flex items-center gap-x-2">
+                    <MyLabel label={label} />
+                    <RadioGroup
+                        className="flex items-center gap-x-2"
                         id={name}
-                        type="checkbox"
-                        checked={checked}
-                        onChange={(e) => {
-                            onChange(e.target.checked)
-                        }}
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                        htmlFor={name}
-                        className="select-none cursor-pointer ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        onValueChange={onChange}
+                        defaultValue={value}
                     >
-                        {content}
-                    </label>
+                        {options.map((option) => {
+                            return (
+                                <div key={option.value} className="flex items-center space-x-2">
+                                    <RadioGroupItem value={option.value} id={name + option.value} />
+                                    <MyLabel className="m-0" htmlFor={name + option.value} label={option.label} />
+                                </div>
+                            )
+                        })}
+                    </RadioGroup>
                 </div>
                 {error && (
                     <div className="flex items-center mt-1">
                         <svg
-                            className="mr-1 w-4 h-4 text-red-500/80"
+                            className="mr-1 w-4 h-4 text-danger/80"
                             stroke="currentColor"
                             fill="none"
                             strokeWidth={2}
@@ -52,7 +54,7 @@ export function MyCheckBox({ name, content, checked, onChange, error, myRef, ...
                             <line x1={12} y1={16} x2={12} y2={12} />
                             <line x1={12} y1={8} x2="12.01" y2={8} />
                         </svg>
-                        <p className="text-red-500/80 mr-2">{error || "This field is required!"}</p>
+                        <p className="text-danger/80 mr-2">{error || "This field is required!"}</p>
                     </div>
                 )}
             </div>
@@ -60,18 +62,19 @@ export function MyCheckBox({ name, content, checked, onChange, error, myRef, ...
     )
 }
 
-interface IMyCheckBoxWithRHF<T extends FieldValues> extends Omit<IMyCheckBox, "mRef" | "checked" | "onChange"> {
+interface IMyRadioGroupWithRHF<T extends FieldValues> extends Omit<IMyRadioGroup, "mRef" | "value" | "onChange"> {
     name: Path<T>
     control: Control<T>
     rules?: RuleType
 }
 
-export function MyCheckBoxWithRHF<T extends FieldValues>({
-    content,
+export function MyRadioGroupWithRHF<T extends FieldValues>({
+    label,
+    options,
     name,
     control,
     rules,
-}: IMyCheckBoxWithRHF<T>) {
+}: IMyRadioGroupWithRHF<T>) {
     return (
         <Controller
             name={name}
@@ -79,11 +82,12 @@ export function MyCheckBoxWithRHF<T extends FieldValues>({
             rules={rules as any}
             render={({ field: { value, onChange, ref }, fieldState: { error } }) => {
                 return (
-                    <MyCheckBox
+                    <MyRadioGroup
+                        label={label}
+                        options={options}
                         name={name}
-                        content={content}
                         myRef={ref}
-                        checked={value || false}
+                        value={value}
                         onChange={onChange}
                         error={error?.message}
                     />

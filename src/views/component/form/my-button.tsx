@@ -1,36 +1,63 @@
-type IVariantStyle = "primary" | "fill" | "outline"
+import { cn } from "@/util/util"
+import { Check, Loader2 } from "lucide-react"
+import React from "react"
+import { Button, ButtonProps } from "../ui/button"
 
-const variantBtnBgStyles = {
-    primary: "bg-primary hover:bg-primary-light",
-    fill: "bg-gray-300 dark:bg-gray-700",
-    outline: "bg-transparent border border-gray-400 dark:border-gray-600",
-}
-
-const variantBtnTextStyles = {
-    primary: "text-gray-100",
-    fill: "text-gray-700 dark:text-gray-300",
-    outline: "text-gray-600 dark:text-gray-400",
-}
-
-interface IMyButton {
-    title: string
+interface IMyButton extends ButtonProps {
+    children: React.ReactNode
     loading?: boolean
-    variant?: IVariantStyle
+    withCheck?: boolean
+    startIcon?: React.ReactNode
+    endIcon?: React.ReactNode
     onClick: () => void | Promise<void>
 }
 
-export function MyButton({ onClick, title, loading = false, variant = "primary" }: IMyButton) {
-    return (
-        <button
-            disabled={loading}
-            type="button"
-            // text-gray-100 bg-primary hover:bg-primary-light
-            className={`${variantBtnBgStyles[variant]} ${variantBtnTextStyles[variant]} focus:outline-none font-medium rounded-lg text-sm px-6 py-2.5`}
-            onClick={() => {
-                void onClick()
-            }}
-        >
-            {loading ? "loading.." : title}
-        </button>
-    )
-}
+const MyButton = React.forwardRef<HTMLButtonElement, IMyButton>(
+    (
+        {
+            children,
+            onClick,
+            loading = false,
+            variant,
+            className,
+            size,
+            asChild,
+            withCheck,
+            startIcon,
+            endIcon,
+            ...props
+        },
+        ref
+    ) => {
+        return (
+            <Button
+                ref={ref}
+                asChild={asChild}
+                size={size}
+                className={cn("hover:cursor-pointer", className)}
+                onClick={() => {
+                    onClick()
+                }}
+                variant={variant}
+                disabled={loading}
+                {...props}
+            >
+                {loading ? (
+                    <>
+                        <Loader2 className="animate-spin mr-1" size={18} /> loading..
+                    </>
+                ) : (
+                    <>
+                        {withCheck && <Check size={18} className="mr-1" />}
+                        {startIcon && <>{startIcon}</>}
+                        {children}
+                        {endIcon && <>{endIcon}</>}
+                    </>
+                )}
+            </Button>
+        )
+    }
+)
+MyButton.displayName = "MyButton"
+
+export default MyButton

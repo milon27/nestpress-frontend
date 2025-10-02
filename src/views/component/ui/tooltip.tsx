@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
-import React from "react"
+import { cn } from "@/util/util"
 import * as TooltipPrimitive from "@radix-ui/react-tooltip"
-
-import { cn } from "../../../../util/util"
+import React from "react"
 
 const TooltipProvider = TooltipPrimitive.Provider
 
@@ -26,4 +25,4 @@ const TooltipContent = React.forwardRef<
 ))
 TooltipContent.displayName = TooltipPrimitive.Content.displayName
 
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider }
+export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger }

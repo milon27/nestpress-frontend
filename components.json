@@ -10,7 +10,7 @@
         "cssVariables": false
     },
     "aliases": {
-        "components": "@/views/component/shadcn",
+        "components": "@/views/component",
         "utils": "@/util/util"
     }
 }

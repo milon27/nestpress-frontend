@@ -1,25 +1,17 @@
-// logged in user global state with zustand store
-import { shallow } from "zustand/shallow"
-import { createWithEqualityFn } from "zustand/traditional"
-import { ICurrentUser } from "../services/auth/auth.dto"
+import { authClient } from "@/lib/auth-client"
 
-interface IUserStore {
-    user?: ICurrentUser
-    // * actions
+export function useUser() {
+    const {
+        data: session,
+        isPending, //loading state
+        error, //error object
+        refetch, //refetch the session
+    } = authClient.useSession()
 
-    setCurrentUser: (user: ICurrentUser) => void
-    logout: () => void
-}
-
-export const useUserStore = createWithEqualityFn<IUserStore>()((set) => {
     return {
-        user: undefined,
-        // * actions
-        setCurrentUser: (user: ICurrentUser) => {
-            set((old) => ({ ...old, user: user }))
-        },
-        logout: () => {
-            set((old) => ({ ...old, user: undefined }))
-        },
+        user: session?.user,
+        loading: isPending,
+        error,
+        refetch,
     }
-}, shallow)
+}

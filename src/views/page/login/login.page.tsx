@@ -1,4 +1,3 @@
-import { MyButton } from "@/views/component/form/my-button"
 import { MyInputWithRHF } from "@/views/component/form/my-input"
 import { MyDesc } from "../../component/common/my-desc"
 import { MySpacer } from "../../component/common/my-spacer"
@@ -6,10 +5,10 @@ import { MyTitle } from "../../component/common/my-title"
 import { FullSectionWrapper } from "../../component/layout/full-section-wrapper.comp"
 import { useLoginController } from "./login.controller"
 
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/views/component/shadcn/ui/tooltip"
+import MyButton from "@/views/component/form/my-button"
 
 export default function LoginPage() {
-    const { control, handleSubmit, loading } = useLoginController()
+    const { control, handleSubmit, isSubmitting } = useLoginController()
     return (
         <FullSectionWrapper className="h-screen grid grid-cols-1 md:grid-cols-2">
             <div className="col-span-1 md:block hidden">
@@ -33,22 +32,14 @@ export default function LoginPage() {
                     placeholder="Enter Your Password"
                 />
                 <MySpacer className="my-4" />
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <MyButton
-                                title="Login Now"
-                                loading={loading}
-                                onClick={async () => {
-                                    await handleSubmit()
-                                }}
-                            />
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>Click the button to login</p>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
+                <MyButton
+                    loading={isSubmitting}
+                    onClick={async () => {
+                        await handleSubmit()
+                    }}
+                >
+                    Login
+                </MyButton>
                 <MySpacer className="my-4" />
             </div>
         </FullSectionWrapper>
